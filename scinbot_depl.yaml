@@ -1,0 +1,61 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: scinbot-pv
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Mi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/home/administrator/Development/scinbot/config"
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: scinbot-pvc
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi  
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: scinbot
+spec:
+  selector:
+    matchLabels:
+      app: scinbot
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: scinbot
+    spec:
+      containers:
+      - name: scinbot
+        image: docker.scinorandex.xyz/scinorandex/scinbot:latest
+        imagePullPolicy: Always
+        volumeMounts:
+        - name: scinbot-config
+          mountPath: /app/config
+        - name: timezone-config
+          mountPath: /etc/localtime
+      restartPolicy: Always
+      volumes:
+        - name: scinbot-config
+          persistentVolumeClaim:
+            claimName: scinbot-pvc
+        - name: timezone-config
+          hostPath:
+            path: /etc/localtime
+      imagePullSecrets:
+        - name: regcred

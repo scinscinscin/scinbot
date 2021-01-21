@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  scinbot:
+    restart: always
+    image: docker.scinorandex.xyz/scinorandex/scinbot
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./config:/app/config

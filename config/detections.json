@@ -1,0 +1,50 @@
+{   
+    "hjt":[
+        {
+            "flags": ["TLauncher.jar", "Shiginima", "easymc", "mcleaks", "altening"],
+            "res": ":red_square: A cracked launcher has been detected. Tell user to uninstall."
+        },{
+            "flags": ["authserver.mojang.com", "sessionserver.mojang.com", "51.68.172.243"],
+            "res": ":red_square: Minecraft hosts file redirection has been detected!, Remove immediately"
+        },{
+            "flags": ["rsService", "Segurazo", "Eset.exe", "ESET", "Norton", "avg.exe", "asc.exe", "advanced system care"],
+            "res": ":orange_square: User has a bad AntiVirus, Removal recommended"
+        },{
+            "flags": ["mfefire", "mcagent", "Intel Security", "McAfee WebaAdvisor"],
+            "res": ":red_square: User has McAfee or Intel Security, Remove using MCPR Tool"
+        },{
+            "flags": ["ByteFence", "WRTray", "Webroot", "Comodo", "Ad Guardian", "avira", "avast", "AvastSvc", "Kapersky", "Lavasoft"],
+            "res": ":yellow_square: User is using an AntiVirus known to cause issues with Minecraft"
+        },{
+            "flags": ["IDman","RestoroProtection","ZaxarLoader.exe","ipts.exe","ciff-3.2.0-12297.xpi","premieropinion","pmropn","360sd","FileOpenerWindows","rlvknlg","ZaxarLoader","opensqr","webcompanion"],
+            "res": ":red_square: User has a virus, Should run a scan with Malwarebytes ADWCleaner"
+        },{
+            "flags": ["RPCAcceleratePro.exe", "WebDiscoverBrowser"],
+            "res": ":orange_square: User potentially has a virus, Should run a scan with Malwarebytes ADWCleaner"
+        },{
+            "flags": ["driverbooster", "warsaw", "netsession_win", "IObit"],
+            "res": ":yellow_square: User has problematic software, recommended removal"
+        },{
+            "flags": ["GlassWire", "ZAM.exe", "F-Secure", "Zonealarm", "GeForce Experience"],
+            "res": ":orange_square: User is using software known to cause issues with Minecraft"
+        },{
+            "flags": ["RzSynapse", "Raser Synapse", "Razer Synapse"],
+            "res": ":yellow_square: User is using software that can sometimes cause issues with Minecraft"
+        },{
+            "flags": ["HotspotShield","Hotspot Shield9.6.3bincmw_srv.exe","brave.com","brave-browser","RvRvpnGui","anoninevpn","SecureLine","TnglCtrl","TunnelBear","ZenMate","pia_manager","HideMy.name","vpn","Cyberghost","Avira.VpnService","hola_svc.exe","hola","ovpnagent","hidemysvc","Windscribe"],
+            "res": ":yellow_square: User is using a VPN, removal or disable recommended."
+        },{
+            "flags": ["hamachi", "LogMeIn Hamachi Ui"],
+            "res": ":red_square: Hamachi has been detected, Tell user to setup proper port forwarding"
+        },{
+            "flags": ["KMSpico"],
+            "res": ":red_square: A cracked Windows installation has been detected."
+        },{
+            "flags": ["hosts:"],
+            "res": ":yellow_square: Hosts file has been modified, It could cause issues. Check the log for more info. Disregard if host file redirection was detected earlier"
+        },{
+            "flags": ["overwolf:"],
+            "res": ":yellow_square: Older versions of overwolf can cause crashes with Minecraft, Update to fix"
+        }
+    ]  
+}
