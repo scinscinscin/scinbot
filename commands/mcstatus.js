@@ -8,11 +8,18 @@ const red = colors.red;
 async function mcstatus(){
     let rawJson = await helper.download("https://status.mojang.com/check");
     const otherServices = ["piston-meta.mojang.com", "auth.xboxlive.com"];
+    let versions = await helper.download("https://launchermeta.mojang.com/mc/game/version_manifest.json");
+    let latestRelease = versions.latest.release;
+    let latestSnapshot = versions.latest.snapshot;
+
     if (rawJson === "error"){
         return({"color": red, "title": `An error has occured.`, "text": `https://status.mojang.com/check is not reachable.`});
+    }else if(versions === "error"){
+        return({"color": red, "title": `An error has occured.`, "text": `https://launchermeta.mojang.com/mc/game/version_manifest.json is not reachable.`});
     }
 
     let message = '**';
+    message += `Minecraft Services:\n`
 
     for (i=0; i<rawJson.length; i++){
         let workingObject = rawJson[i];
@@ -45,7 +52,12 @@ async function mcstatus(){
         }
     }
     
-    message += "**";
+    message += `\n`
+    message += `Versions:\n`
+    message += `Latest Release: ${latestRelease}\n`;
+    message += `Latest Snapshot: ${latestSnapshot}\n`;
+    message += `**`;
+
     return({"color": green, "title": "MCServices Check", "text": message});
 }
 
