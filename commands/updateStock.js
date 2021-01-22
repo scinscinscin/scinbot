@@ -6,7 +6,7 @@ function updateStock(){
 
     for (i=0; i<companyList.length; i++){
         let stock = economy["companies"][companyList[i]]["stockPrice"];
-        let gacha = Math.random() > 0.5 ? 1 : -1;
+        let gacha = Math.random() > 0.3 ? 1 : -1;
         let absoluteGains = Math.round(Math.random() * 50);
         let gains = Math.round(absoluteGains * gacha);
         let newStock = Math.round(Math.round(stock) + Math.round(gains));

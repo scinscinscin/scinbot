@@ -116,7 +116,7 @@ function gamble(type, authorID){
     let balance = economy["members"][authorID]["balance"];
     let gains;
 
-    let gacha = Math.random() > 0.5 ? 1 : -1;
+    let gacha = Math.random() > 0.3 ? 1 : -1;
     if (type === "roll"){
         let absoluteGains = Math.round(Math.random() * 50)
         gains = Math.round(absoluteGains * gacha);
