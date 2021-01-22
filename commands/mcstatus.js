@@ -6,8 +6,8 @@ const green = colors.green;
 const red = colors.red;
 
 async function mcstatus(){
-    let rawJson = JSON.parse(await helper.download("https://status.mojang.com/check"));
-
+    let rawJson = await helper.download("https://status.mojang.com/check");
+    const otherServices = ["piston-meta.mojang.com", "auth.xboxlive.com"];
     if (rawJson === "error"){
         return({"color": red, "title": `An error has occured.`, "text": `https://status.mojang.com/check is not reachable.`});
     }
@@ -32,6 +32,16 @@ async function mcstatus(){
             message += `:green_square: ${service[0]} \n`
         }else{
             message += `:red_square: ${service[0]} \n`
+        }
+    }
+    
+    for (j=0; j<otherServices.length; j++){
+        let workingSite = otherServices[j];
+        let serviceStatus = await helper.pingDomain(workingSite);
+        if(serviceStatus){
+            message += `:green_square: ${workingSite} \n`
+        }else{
+            message += `:red_square: ${workingSite} \n`
         }
     }
     
