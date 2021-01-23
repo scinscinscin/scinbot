@@ -96,6 +96,10 @@ client.on('message', async message => {
             return;
     }
 
+    if(response === undefined){
+        response = { "color": red, "title": "Unknown Error", "text": "Unknown internal error has occured."}
+    }
+
     let { color, title, text } = response; 
     sendMsg(channel, author, color, title, text);
 

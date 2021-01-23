@@ -10,7 +10,7 @@
             "flags": ["rsService", "Segurazo", "Eset.exe", "ESET", "Norton", "avg.exe", "asc.exe", "advanced system care"],
             "res": ":orange_square: User has a bad AntiVirus, Removal recommended"
         },{
-            "flags": ["mfefire", "mcagent", "Intel Security", "McAfee WebaAdvisor"],
+            "flags": ["mfefire", "mcagent", "Intel Security", "McAfee WebaAdvisor", "McAfee"],
             "res": ":red_square: User has McAfee or Intel Security, Remove using MCPR Tool"
         },{
             "flags": ["ByteFence", "WRTray", "Webroot", "Comodo", "Ad Guardian", "avira", "avast", "AvastSvc", "Kapersky", "Lavasoft"],
@@ -46,5 +46,74 @@
             "flags": ["overwolf:"],
             "res": ":yellow_square: Older versions of overwolf can cause crashes with Minecraft, Update to fix"
         }
-    ]  
+    ],
+    "mccr": [
+        {
+            "flags": ["Failed to create context", "No OpenGL conect found in the current thread", "Could not create context", "pixel format not accelerated", "glfw error 65542", "the driver does not appear to support opengl"],
+            "res": "OpenGL has issues starting the game. Try upgrading drivers.\n Use DXDiag to get specs to find drivers <http://hopper.minecraft.net/help/pixel-format-not-accelerated/support/#dxdiag>. Another common cause for this is upgrading Windows, The device being used might not support the version of Windows being used."
+        },{
+            "flags": ["sigseg"],
+            "res": "Looks like a segment fault for JVM, These can be caused by many things, maybe try reinstalling Java?"
+        },{
+            "flags": ["-107374181"],
+            "res": "https://minecrafthopper.net/help/exit-code/code-1073741819/"
+        },{
+            "flags": ["-1073740777"],
+            "res": "https://minecrafthopper.net/help/exit-code/code-1073740777/"
+        },{
+            "flags": ["downloadable.cpp"],
+            "res": "The launcher couldn't download a required file. Try checking the network connection."
+        },{
+            "flags": ["org.lwjgl.opengl.xrandr.findprimary"],
+            "res": "Linux / X.org issue. OpenGL can't find the primary display. Make sure that you have proper drivers installed. Try glxgears/glxinfo."
+        },{
+            "flags": ["Maybe try a lowerresolution texturepack", "lowerresolution", "MC-29565"],
+            "res": "MC-29565. https://bugs.mojang.com/MC-29565"
+        },{
+            "flags": ["(the system cannot find the file specified)"],
+            "res": "Unable to find a file, Normally indicates an invalid Windows username."
+        },{
+            "flags": ["maximum id range exceeded"],
+            "res": "Hit the maximum ID limit for Minecraft, remove some mods or get someting like Not Enough ID's"
+        },{
+            "flags": ["mc_mem_iss"],
+            "res": "Memory issue, The game is running out of memory, you can fix this in many ways\nTry closing some background applications or allocating more ram to Minecraft."
+        },{
+            "flags": ["could not reserve enough space for"],
+            "res": "Memory issue, Unable to reserve enough memory for Minecraft! Common causes are JVM arguments asking for more ram than the user has, the user is running out of memory or they're running an ARM cpu."
+        },{
+            "flags": ["MC-34749", "mc-34749", "Failed to create a child event loop"],
+            "res": "Failed to create a child event loop. Try a different mouse, resetting the options file or look at https://bugs.mojang.com/browse/MC-34749"
+        },{
+            "flags": ["MC-10167", "Failed to check session lock. aborting"],
+            "res": "https://bugs.mojang.com/browse/MC-10167"
+        },{
+            "flags": ["the file or directory is corrupted and unreadable"],
+            "res": "Some file or directory is corrupted or unreadable, Maybe try reinstalling?"
+        },{
+            "flags": ["you need to agree to the eula"],
+            "res": "You need to accept the eula in the eula.txt file."
+        },{
+            "flags": ["a fatal error has been detected by the java runtime environment:"],
+            "res": "A JVM error has been detected. Need to look in the logfile."
+        },{
+            "flags": ["Access is denied."],
+            "res": ".minecraft folder is unwritable for some reason"
+        },{
+            "flags": ["could not find or load main class net.minecraft.client.main.main"],
+            "res": "Unable to find the main class! Normally caused by an invalid username or antivirus. If launcherlog is unable to generate then most likely an invalid Windows username."
+        },{
+            "flags": ["multimc"],
+            "res": "User is using MultiMC"
+        },{
+            "flags": ["mccheck-amd"],
+            "res": "AMD driver is most likely outdated, Get a DXDiag and use the DXDiag command to get drivers."
+        },{
+            "flags": ["Is Modded: Definitely;", "Client brand changed to 'fabric'", "Client brand changed to 'optifine'", "Client brand changed to 'forge'"],
+            "res": "User is not playing on vanilla."
+        },{
+            "flags": ["Java Version: 1.8.0_51, Oracle Corporation"],
+            "res": "User is using the JRE that comes with Minecraft"
+        }
+    ]
 }

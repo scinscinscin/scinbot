@@ -46,8 +46,8 @@ async function main(link){
         type = { "logType": "Unix HiJackThis Log" }
         return({"color": red, "title": `Not Implemented`, "text": `Unix HijackThis has not been implemented yet`});
     }else if(contents.includes("---- Minecraft Crash Report ----")){
+        var allFlags = detections.mccr;
         type = { "logType": "Minecraft Crash Report" }
-        return({"color": red, "title": `Not Implemented`, "text": `Minecraft Crash Reports have not been implemented yet`});
     }else if(contents.includes("Time of this report")){
         type = { "logType": "DXDiag Report" }
         return({"color": red, "title": `Not Implemented`, "text": `DXDiag reports have not been implemented yet`});
