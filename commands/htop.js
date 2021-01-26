@@ -18,6 +18,7 @@ async function htop(){
     }
 
     let loadAvg = os.loadavg();
+    let opersys = await osutils.os.oos();
     let { totalMemMb, usedMemMb, freeMemMb, freeMemPercentage } = await osutils.mem.info();
     let cpuUsage = await osutils.cpu.usage();
     let kernel = await helper.execBash('uname -r');
@@ -25,15 +26,16 @@ async function htop(){
     uptime = helper.secondsToDhms(uptime);
 
     message += "**";
-    message += "System Information \n";
-    message += "Kernel: " + kernel ;
-    message += "Uptime: " + uptime + "\n \n";
+    message += `System Information\n`;
+    message += `Operating System: ${opersys}\n`;
+    message += `Kernel: ${kernel}\n`;
+    message += `Uptime: ${uptime}\n\n`;
     
-    message += "CPU and Memory \n";
-    message += "CPU Usage: " + cpuUsage + "% usage\n";
-    message += "Load Avg: " + loadAvg[0] + ", " + loadAvg[1] + ", " + loadAvg[2] + "\n";
-    message += "Used Mem: " + mbtogb(usedMemMb) + "GB /" + mbtogb(totalMemMb) + "GB used" + "\n";
-    message += "Free Mem: " + mbtogb(freeMemMb) + "GB or " + freeMemPercentage + "% free" + "\n\n";
+    message += `CPU and Memory \n`;
+    message += `CPU Usage: ${cpuUsage}% usage\n`;
+    message += `Load Avg: ${loadAvg[0]}, ${loadAvg[1]}, ${loadAvg[2]}\n`;
+    message += `Used Mem: ${mbtogb(usedMemMb)}GB / ${mbtogb(totalMemMb)}GB used\n`;
+    message += `Free Mem: ${mbtogb(freeMemMb)}GB or ${freeMemPercentage}% free\n\n`;
 
     message += "Disk Space \n";
     for(i=0; i<drives.length; i++){
