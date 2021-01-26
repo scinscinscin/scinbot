@@ -13,7 +13,7 @@
             "flags": ["mfefire", "mcagent", "Intel Security", "McAfee WebaAdvisor", "McAfee"],
             "res": ":red_square: User has McAfee or Intel Security, Remove using MCPR Tool"
         },{
-            "flags": ["ByteFence", "WRTray", "Webroot", "Comodo", "Ad Guardian", "avira", "avast", "AvastSvc", "Kapersky", "Lavasoft"],
+            "flags": ["ByteFence", "WRTray", "Webroot", "Comodo", "Ad Guardian", "avira", "avast", "AvastSvc", "Avast", "Kapersky", "Lavasoft"],
             "res": ":yellow_square: User is using an AntiVirus known to cause issues with Minecraft"
         },{
             "flags": ["IDman","RestoroProtection","ZaxarLoader.exe","ipts.exe","ciff-3.2.0-12297.xpi","premieropinion","pmropn","360sd","FileOpenerWindows","rlvknlg","ZaxarLoader","opensqr","webcompanion"],
