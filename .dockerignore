@@ -1,2 +1,7 @@
 node_modules/
 config/
+docker-build.sh
+Dockerfile
+LICENSE.md
+docker-compose.yml
+scinbot_depl.yaml
