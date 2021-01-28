@@ -72,6 +72,10 @@ client.on('message', async message => {
             response = await command.mcstatus();
         break;
 
+        case 'mcjar' :
+            response = await command.mcjar(args);
+        break;
+
         case 'eco' :
             response = await command.economy(args, authorID);
         break;
