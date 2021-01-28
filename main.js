@@ -80,6 +80,10 @@ client.on('message', async message => {
             response = await command.economy(args, authorID);
         break;
 
+        case `ping`:
+            response = await command.ping(message);
+        break;
+
         case `test`:
             response = await command.test(channelID, authorID, author, args);
         break;
