@@ -8,7 +8,7 @@ function download(link){
         }).then((res) => {
             resolve(res.data);
         }, (error) => {
-            //console.log(error)
+            console.log(error)
             resolve("error")
         });
     });
