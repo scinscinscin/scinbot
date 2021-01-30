@@ -76,6 +76,10 @@ client.on('message', async message => {
             response = await command.mcjar(args);
         break;
 
+        case 'hypixel' :
+            response = await command.hypixel(args);
+        break;
+
         case 'eco' :
             response = await command.economy(args, authorID);
         break;
