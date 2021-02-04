@@ -25,25 +25,29 @@ async function main(args){
 
     let player = response.player;
     let message = "**";
+    
+    try{
+        if (arguments.length === 1){
+            //general info about the user
+            message += `Display Name: ${player.displayname}\n`;
+            message += `Hypixel ID: ${player["_id"]}\n`;
+            message += `UUID: ${player.uuid}\n`;
+            message += `Aliases: ${player.knownAliases.join(", ")}\n`
+            message += `First Login: ${(new Date(player.firstLogin)).toLocaleString()}\n`;
+            message += `Latest Login: ${(new Date(player.lastLogin)).toLocaleString()}\n`;
+            message += `Latest Logout: ${(new Date(player.lastLogout)).toLocaleString()}\n`;
+            message += `Experience: ${player.networkExp}\n`;
+            message += `Most Recent Game Type: ${player.mostRecentGameType}`;
+            message += "**";
 
-    if (arguments.length === 1){
-        //general info about the user
-        message += `Display Name: ${player.displayname}\n`;
-        message += `Hypixel ID: ${player["_id"]}\n`;
-        message += `UUID: ${player.uuid}\n`;
-        message += `Aliases: ${player.knownAliases.join(", ")}\n`
-        message += `First Login: ${(new Date(player.firstLogin)).toLocaleString()}\n`;
-        message += `Latest Login: ${(new Date(player.lastLogin)).toLocaleString()}\n`;
-        message += `Latest Logout: ${(new Date(player.lastLogout)).toLocaleString()}\n`;
-        message += `Experience: ${player.networkExp}\n`;
-        message += `Most Recent Game Type: ${player.mostRecentGameType}`;
-        message += "**";
+            return({"color": green, "title": `General Info for ${arguments[0]}`, "text": `${message}`});
+        }
 
-        return({"color": green, "title": `General Info for ${arguments[0]}`, "text": `${message}`});
-    }
-
-    if (arguments.length > 1){
-        return({"color": green, "title": `Too much information`, "text": `**This command only takes the username for it's parameter.**`});
+        if (arguments.length > 1){
+            return({"color": green, "title": `Too much information`, "text": `**This command only takes the username for it's parameter.**`});
+        }
+    }catch{
+        return({"color": red, "title": `API error`, "text": `**${arguments[0]} exists but the API has not returned the proper info.**`});
     }
 }
 
