@@ -100,6 +100,7 @@ client.on('message', async message => {
             if(authorID == creator.id){
                 console.log("Shutting Down");
                 client.destroy();
+                process.exit(0);
             }
             return;
         break;
