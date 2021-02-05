@@ -47,6 +47,10 @@ async function main(args, authorID){
             response = foldCompany(authorID, options);
         break;
 
+        case 'help':
+            response = help();
+        break;
+
         default:
             response = {"color": red, "title": `Unknown command`, "text": `Type "${prefix}eco help" to get a list of all commands`};
     }
@@ -330,4 +334,27 @@ function foldCompany(authorID, options){
     return({"color": red, "title": `Success!`, "text": `**You have successfully deleted ${companyName}**`});
 }
 
+function help(){
+    let message = ``;
+    message += '**Usage: \n**';
+    message += "```" + prefix + "eco [subcommand] <parameters>```\n";
+    message += `**`;
+    message += `Subcommands: \n`;
+    message += `join: Join the economy\n`;
+    message += `bal: List your or another user's balance\n`;
+    message += `gamble: Gain or lose 10% of your current balance\n`;
+    message += `roll: Gain or lose 0-50 scinbucks\n`;
+    message += `listCompanies: lits all the companies\n\n`;
+    message += `startCompany: Start a company\n`;
+    message += "Parameters: ``<companyName>``\n\n";
+    message += `foldCompany: Fold a company you own\n`;
+    message += "Parameters: ``<companyName>``\n\n";
+    message += `invest: Invest stock(s) in a company\n`;
+    message += "Parameters: ``<companyName> <amountOfStocks>``\n\n";
+    message += `sell: Sell stock(s) in a company\n`;
+    message += "Parameters: ``<companyName> <amountOfStocks>``\n\n";
+    message += `**`;
+
+    return({"color": green, "title": `Help`, "text": `${message}`});
+}
 module.exports = main;
