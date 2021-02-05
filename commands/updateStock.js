@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { gachaThreshold } = require('../config/main.json');
 
 function updateStock(){
     economy = JSON.parse(fs.readFileSync('./config/economy.json'));
@@ -6,7 +7,7 @@ function updateStock(){
 
     for (i=0; i<companyList.length; i++){
         let stock = economy["companies"][companyList[i]]["stockPrice"];
-        let gacha = Math.random() > 0.3 ? 1 : -1;
+        let gacha = Math.random() > gachaThreshold ? 1 : -1;
         let absoluteGains = Math.round(Math.random() * 50);
         let gains = Math.round(absoluteGains * gacha);
         let newStock = Math.round(Math.round(stock) + Math.round(gains));
